@@ -12,6 +12,15 @@ class Test_ConjuredService(unittest.TestCase):
 
         self.assertTrue(ConjuredService.set_item_quality(item, q_value) == expected_quality)
 
+    def test_can_reduce_conjured_item_quality(self):
+        item = item = Item("Conjured", 25, 35)
+
+        value_to_reduce = 2
+
+        expected_quality = 33
+
+        self.assertTrue(ConjuredService.reduce_conjured_item_quality(item, value_to_reduce) == expected_quality)
+
 
 
 
