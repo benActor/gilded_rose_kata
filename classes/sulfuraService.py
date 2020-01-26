@@ -7,3 +7,6 @@ class SulfuraService:
             item.quality = 80
             return item.quality
 
+    @staticmethod
+    def update_item
+
