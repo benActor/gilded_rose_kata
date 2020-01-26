@@ -61,9 +61,5 @@ class TestItemService(unittest.TestCase):
 
         self.assertFalse(ItemService.is_item_back_stage(item5))
 
-
-
-
-
 if __name__ == '__main__':
     unittest.main()
