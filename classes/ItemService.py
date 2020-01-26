@@ -2,6 +2,14 @@ from classes.Item import Item
 
 
 class ItemService:
+
+    special_items = {
+        "sulfuras": "Sulfuras",
+        "back_stage": "Backstage passes",
+        "aged_brie": "Aged Brie",
+        "conjured": "Conjured"
+    }
+
     @staticmethod
     def is_item_valid(item):
         if type(item) is Item:
@@ -16,7 +24,7 @@ class ItemService:
 
     @staticmethod
     def reduce_item_sell_in(item):
-        if ItemService.is_item_valid(item):
+        if ItemService.is_item_valid(item) and hasattr(item, "sell_in"):
             if ItemService.is_entry_value_integer(item.sell_in):
                 item.sell_in -= 1
                 return item.sell_in
