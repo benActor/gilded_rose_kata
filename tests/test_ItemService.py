@@ -27,15 +27,29 @@ class TestItemService(unittest.TestCase):
 
         self.assertRaises(TypeError, ItemService.reduce_item_sell_in, item2)
 
+    # raise an exeption if we try to access an undefined attribute
     def test_attribute_is_defined(self):
         self.assertTrue(ItemService.item_has_given_attributte(Item('concert', 12, 30), 'name'))
 
         self.assertRaises(AttributeError, ItemService.item_has_given_attributte, Item('concert', 12, 30), 'price')
 
     def test_can_identify_special_items(self):
-        self.assertTrue(ItemService.is_special_item(Item("Backstage passes to johny concert", 50, 30)))
+        self.assertTrue(ItemService.is_special_item(Item('Backstage passes to johny concert', 50, 30)))
 
-        self.assertFalse(ItemService.is_special_item(Item("passes to john legend", 25, 50)))
+        self.assertFalse(ItemService.is_special_item(Item('passes to john legend', 25, 50)))
+
+    def test_identify_aged_brie_type(self):
+        item = Item('Aged Brie', 25, 50)
+
+        item2 = Item("sulfuras", 35, 50)
+
+        self.assertTrue(ItemService.is_aged_brie, item)
+
+        self.assertTrue(ItemService.is_item_sulfuras, item2)
+
+        self.assertFalse(ItemService.is_aged_brie(item2))
+
+
 
 
 

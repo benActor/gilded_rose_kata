@@ -44,6 +44,17 @@ class ItemService:
             return False
 
 
+    @staticmethod
+    def is_aged_brie(item):
+        return ItemService.special_items["aged_brie"] in item.name
+
+    @staticmethod
+    def is_item_sulfuras(item):
+        return ItemService.special_items["sulfuras"] in item.name
+
+
+
+
 
 
 
