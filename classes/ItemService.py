@@ -11,6 +11,12 @@ class ItemService:
     }
 
     @staticmethod
+    def item_has_given_attributte(item, attribute):
+        if hasattr(item, attribute):
+            return True
+        raise AttributeError('an attribute {} must be defined for the item'.format(attribute))
+
+    @staticmethod
     def is_item_valid(item):
         if type(item) is Item:
             return True
@@ -19,14 +25,25 @@ class ItemService:
     @staticmethod
     def is_entry_value_integer(value):
         if not type(value) is int:
-            raise TypeError("The value must be an integer")
+            raise TypeError('The value must be an integer')
         return True
 
     @staticmethod
     def reduce_item_sell_in(item):
-        if ItemService.is_item_valid(item) and hasattr(item, "sell_in"):
+        if ItemService.is_item_valid(item) and ItemService.item_has_given_attributte(item, 'sell_in'):
             if ItemService.is_entry_value_integer(item.sell_in):
                 item.sell_in -= 1
                 return item.sell_in
+
+    @staticmethod
+    def is_special_item(item):
+        if ItemService.is_item_valid(item) and ItemService.item_has_given_attributte(item, "name"):
+            for item_type in ItemService.special_items:
+                if ItemService.special_items[item_type] in item.name:
+                    return True
+            return False
+
+
+
 
 
