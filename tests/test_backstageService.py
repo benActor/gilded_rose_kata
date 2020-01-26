@@ -21,7 +21,12 @@ class Test_BackstageService(unittest.TestCase):
         item = Item("Backstage passes to johny", 5, 35)
         expected_value = 38
 
+        item2 = Item("Backstage passes to johny", 0, 50)
+        expected_value2 = 0
+
         self.assertTrue(BackstageService.update_item_quality(item) == expected_value)
+
+        self.assertTrue(BackstageService.update_item_quality(item2) == expected_value2)
 
 if __name__ == '__main__':
     unittest.main()
