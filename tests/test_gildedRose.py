@@ -22,12 +22,15 @@ class test_GildedRose(unittest.TestCase):
 
         expected_first_item = Item("Sulfuras", 19, 80)
         expected_second_item = Item("Conjured", 24, 50)
+        tirth_expeted_item = Item("Backstage passes to johny", 1, 49)
 
         new_items_list = GildedRose.update_items(items, current_time)
 
         self.assertTrue(ItemService.are_item_equal(new_items_list[0], expected_first_item))
 
         self.assertTrue(ItemService.are_item_equal(new_items_list[1], expected_second_item))
+
+        self.assertTrue(ItemService.are_item_equal(new_items_list[2], tirth_expeted_item))
 
 
 if __name__ == '__main__':
