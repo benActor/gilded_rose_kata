@@ -46,19 +46,23 @@ class ItemService:
 
     @staticmethod
     def is_aged_brie(item):
-        return ItemService.special_items["aged_brie"] in item.name
+        if ItemService.is_item_valid(item):
+            return ItemService.special_items["aged_brie"] in item.name
 
     @staticmethod
     def is_item_sulfuras(item):
-        return ItemService.special_items["sulfuras"] in item.name
+        if ItemService.is_item_valid(item):
+            return ItemService.special_items["sulfuras"] in item.name
 
     @staticmethod
     def is_item_conjured(item):
-        return ItemService.special_items["conjured"] in item.name
+        if ItemService.is_item_valid(item):
+            return ItemService.special_items["conjured"] in item.name
 
     @staticmethod
     def is_item_back_stage(item):
-        return ItemService.special_items["back_stage"] in item.name
+        if ItemService.is_item_valid(item):
+            return ItemService.special_items["back_stage"] in item.name
 
     @staticmethod
     def set_quality_in_range(item, q_value):

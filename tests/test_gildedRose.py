@@ -1,5 +1,6 @@
 import unittest
 from classes.gildedRose import GildedRose
+from classes.Item import Item
 
 
 class test_GildedRose(unittest.TestCase):
@@ -13,6 +14,14 @@ class test_GildedRose(unittest.TestCase):
         self.assertTrue(GildedRose.is_end_of_the_day(my_time))
 
         self.assertFalse(GildedRose.is_end_of_the_day("14:25:33"))
+
+    def test_can_update_items(self):
+        current_time = "00:00:00"
+        items = [Item("Sulfuras", 20, 40), Item("Conjured", 25, 60), Item("Backstage passes to johny", 2, 46)]
+
+        expected_output = ["Sulfuras", 19, 80, "Conjured", 24, 50, "Backstage passes to johny", 1, 49]
+
+        self.assertTrue(GildedRose.update_items(items, current_time) == expected_output)
 
 
 if __name__ == '__main__':

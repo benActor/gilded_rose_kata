@@ -7,6 +7,8 @@ from classes.backStageService import BackstageService
 from classes.standardItemService import StandardItemService
 from classes.agedBrieService import AgedBrieService
 
+from classes.Item import Item
+
 
 class GildedRose:
     items = []
@@ -22,8 +24,8 @@ class GildedRose:
         return GildedRose.time_in_right_format(my_time) and my_time == "00:00:00"
 
     @staticmethod
-    def update_items(items):
-        if GildedRose.is_end_of_the_day(datetime.now().strftime('%H:%M:%S')):
+    def update_items(items, current_time):
+        if GildedRose.is_end_of_the_day(current_time):
             for item in items:
                 if ItemService.is_item_conjured(item):
                     ConjuredService.update_quality(item)
@@ -35,11 +37,13 @@ class GildedRose:
                     AgedBrieService.update_item(item)
                 elif not ItemService.is_special_item(item):
                     StandardItemService.update_item_quality(item)
+            return items
 
 
 if __name__ == '__main__':
     items = []
-    GildedRose.update_items(items)
+    GildedRose.update_items(items, datetime.now().strftime('%H:%M:%S'))
+
 
 
 
