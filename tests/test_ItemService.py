@@ -43,11 +43,23 @@ class TestItemService(unittest.TestCase):
 
         item2 = Item("sulfuras", 35, 50)
 
+        item3 = Item("conjured", 35, 50)
+
+        item4 = Item("Backstage passes to johny concert", 35, 50)
+
+        item5 = Item('passes to john legend', 25, 50)
+
         self.assertTrue(ItemService.is_aged_brie, item)
 
         self.assertTrue(ItemService.is_item_sulfuras, item2)
 
         self.assertFalse(ItemService.is_aged_brie(item2))
+
+        self.assertTrue(ItemService.is_item_conjured, item3)
+
+        self.assertTrue(ItemService.is_item_back_stage(item4))
+
+        self.assertFalse(ItemService.is_item_back_stage(item5))
 
 
 

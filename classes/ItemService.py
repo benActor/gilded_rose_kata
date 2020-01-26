@@ -52,6 +52,13 @@ class ItemService:
     def is_item_sulfuras(item):
         return ItemService.special_items["sulfuras"] in item.name
 
+    @staticmethod
+    def is_item_conjured(item):
+        return ItemService.special_items["conjured"] in item.name
+
+    @staticmethod
+    def is_item_back_stage(item):
+        return ItemService.special_items["back_stage"] in item.name
 
 
 
