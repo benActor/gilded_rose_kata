@@ -10,4 +10,10 @@ class AgedBrieService:
     def increase_item_quality(item, value):
         return AgedBrieService.set_item_quality(item, item.quality + value)
 
+    @staticmethod
+    def update_item(item):
+        ItemService.reduce_item_sell_in(item)
+        AgedBrieService.increase_item_quality(item, 1)
+        return item.quality, item.sell_in
+
 

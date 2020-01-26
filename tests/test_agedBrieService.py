@@ -16,7 +16,8 @@ class TesAgedBrieService(unittest.TestCase):
     def test_can_update_agedBrie_items(self):
         item = Item("Aged Brie", 20, 30)
         expected_quality = item.quality + 1
-        sell_in_expêcted = item.sell_in - 1
+        sell_in_expected = item.sell_in - 1
+        self.assertTrue(AgedBrieService.update_item(item) == (expected_quality, sell_in_expected))
 
 
 
