@@ -1,6 +1,11 @@
 from classes.ItemService import ItemService
 
 class AgedBrieService:
+
+    """
+        this class handle the treatment for aged Brie items
+
+    """
     @staticmethod
     def set_item_quality(item , q_value):
         if ItemService.is_aged_brie(item):

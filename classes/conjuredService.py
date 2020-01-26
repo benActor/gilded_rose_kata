@@ -2,6 +2,10 @@ from classes.ItemService import ItemService
 
 
 class ConjuredService:
+
+    """"
+    this class is designed for the treatment of conjured items
+    """
     @staticmethod
     def set_item_quality(item, q_value):
         if ItemService.is_item_conjured(item):

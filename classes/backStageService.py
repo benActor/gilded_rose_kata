@@ -1,8 +1,10 @@
 from classes.ItemService import ItemService
 
 
-
 class BackstageService:
+    """
+        this is designed only for back stage passes treatment
+    """
 
     @staticmethod
     def set_item_quality(item, q_value):
@@ -28,6 +30,3 @@ class BackstageService:
         else:
             BackstageService.increase_item_quality(item, 1)
             return item.quality
-
-
-

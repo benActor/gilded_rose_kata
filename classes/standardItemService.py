@@ -2,6 +2,10 @@ from classes.ItemService import ItemService
 
 class StandardItemService:
 
+    """"
+    for non special items that is items that are not present in the special item list
+    """
+
     @staticmethod
     def set_item_quality(item, q_value):
         if not ItemService.is_special_item(item):

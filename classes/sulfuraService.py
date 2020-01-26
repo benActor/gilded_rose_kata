@@ -1,5 +1,10 @@
 from classes.ItemService import ItemService
+
+
 class SulfuraService:
+    """
+        to handle the update of Sulfuras items
+    """
 
     @staticmethod
     def set_item_quality(item):
@@ -12,4 +17,3 @@ class SulfuraService:
         SulfuraService.set_item_quality(item)
         ItemService.reduce_item_sell_in(item)
         return item.quality, item.sell_in
-

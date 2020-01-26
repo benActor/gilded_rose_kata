@@ -3,6 +3,10 @@ from classes.Item import Item
 
 class ItemService:
 
+    """
+    this class is designed to handle common behaviours between items
+    """
+
     special_items = {
         "sulfuras": "Sulfuras",
         "back_stage": "Backstage passes",

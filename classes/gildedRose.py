@@ -11,8 +11,10 @@ from classes.Item import Item
 
 
 class GildedRose:
-    items = []
+    """
+        this class implements the gildedRose items update
 
+    """
     @staticmethod
     def time_in_right_format(my_time):
         if bool(re.match(r"\d\d:\d\d:\d\d", my_time)) and len(my_time) == 8:
@@ -41,12 +43,12 @@ class GildedRose:
 
 
 if __name__ == '__main__':
-    items = [Item("Sulfuras", 20, 40), Item("Conjured", 25, 60), Item("Backstage passes to johny", 2, 46)]
-    # GildedRose.update_items(items, datetime.now().strftime('%H:%M:%S'))
-    GildedRose.update_items(items, "00:00:00")
+    while True:
+        items = [Item("Sulfuras", 20, 40), Item("Conjured", 25, 60), Item("Backstage passes to johny", 2, 46)]
+        GildedRose.update_items(items, datetime.now().strftime('%H:%M:%S'))
 
-    print(items[1])
-    print(ItemService.are_item_equal(items[1], Item("Conjured", 24, 50)))
+
+
 
 
 
