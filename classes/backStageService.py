@@ -1,5 +1,5 @@
 from classes.ItemService import ItemService
-from classes.Item import Item
+
 
 class BackstageService:
 
@@ -14,4 +14,5 @@ class BackstageService:
 
 
 
-print(BackstageService.increase_item_quality( Item("Backstage passes to johny", 50, 50), 3))
+
+
