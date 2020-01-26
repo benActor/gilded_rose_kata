@@ -60,6 +60,20 @@ class ItemService:
     def is_item_back_stage(item):
         return ItemService.special_items["back_stage"] in item.name
 
+    @staticmethod
+    def set_quality_in_range(item, q_value):
+        if ItemService.is_entry_value_integer(q_value):
+            if ItemService.item_has_given_attributte(item, "quality"):
+                if q_value < 0:
+                    item.quality = 0
+                    return item.quality
+                elif q_value > 50:
+                    item.quality = 0
+                    return item.quality
+                else:
+                    item.quality = q_value
+                    return item.quality
+
 
 
 
