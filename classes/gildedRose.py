@@ -41,8 +41,12 @@ class GildedRose:
 
 
 if __name__ == '__main__':
-    items = []
-    GildedRose.update_items(items, datetime.now().strftime('%H:%M:%S'))
+    items = [Item("Sulfuras", 20, 40), Item("Conjured", 25, 60), Item("Backstage passes to johny", 2, 46)]
+    # GildedRose.update_items(items, datetime.now().strftime('%H:%M:%S'))
+    GildedRose.update_items(items, "00:00:00")
+
+    print(items[1])
+    print(ItemService.are_item_equal(items[1], Item("Conjured", 24, 50)))
 
 
 

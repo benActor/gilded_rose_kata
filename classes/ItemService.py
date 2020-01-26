@@ -78,6 +78,11 @@ class ItemService:
                     item.quality = q_value
                     return item.quality
 
+    @staticmethod
+    def are_item_equal(item1, item2):
+         if ItemService.is_item_valid(item1) and ItemService.is_item_valid(item2):
+             return item1.name == item2.name and item1.quality == item2.quality and item1.sell_in == item2.sell_in
+
 
 
 

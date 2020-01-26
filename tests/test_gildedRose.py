@@ -1,6 +1,7 @@
 import unittest
 from classes.gildedRose import GildedRose
 from classes.Item import Item
+from classes.ItemService import ItemService
 
 
 class test_GildedRose(unittest.TestCase):
@@ -19,9 +20,14 @@ class test_GildedRose(unittest.TestCase):
         current_time = "00:00:00"
         items = [Item("Sulfuras", 20, 40), Item("Conjured", 25, 60), Item("Backstage passes to johny", 2, 46)]
 
-        expected_output = ["Sulfuras", 19, 80, "Conjured", 24, 50, "Backstage passes to johny", 1, 49]
+        expected_first_item = Item("Sulfuras", 19, 80)
+        expected_second_item = Item("Conjured", 24, 50)
 
-        self.assertTrue(GildedRose.update_items(items, current_time) == expected_output)
+        new_items_list = GildedRose.update_items(items, current_time)
+
+        self.assertTrue(ItemService.are_item_equal(new_items_list[0], expected_first_item))
+
+        self.assertTrue(ItemService.are_item_equal(new_items_list[1], expected_second_item))
 
 
 if __name__ == '__main__':
