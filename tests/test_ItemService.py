@@ -61,5 +61,12 @@ class TestItemService(unittest.TestCase):
 
         self.assertFalse(ItemService.is_item_back_stage(item5))
 
+
+    def test_can_compare_two_items(self):
+        item = Item('Aged Brie', 25, 50)
+
+        item2 = Item('Aged Brie', 25, 50)
+
+        self.assertTrue(ItemService.are_item_equal(item, item2))
 if __name__ == '__main__':
     unittest.main()
