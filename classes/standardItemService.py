@@ -1,8 +1,6 @@
 from classes.ItemService import ItemService
-from classes.Item import Item
 
-
-class NonSpecialItemService:
+class StandardItemService:
 
     @staticmethod
     def set_item_quality(item, q_value):
@@ -21,6 +19,15 @@ class NonSpecialItemService:
 
     @staticmethod
     def reduce_item_quality_by(item, value):
-        NonSpecialItemService.set_item_quality(item, item.quality - value)
-        return item.quality
+        if not ItemService.is_special_item(item):
+            StandardItemService.set_item_quality(item, item.quality - value)
+            return item.quality
+
+    @staticmethod
+    def update_item_quality(item):
+        ItemService.reduce_item_sell_in(item)
+        StandardItemService.reduce_item_quality_by(item, 1)
+        return item.quality, item.sell_in
+
+
 
