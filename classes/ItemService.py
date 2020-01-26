@@ -68,7 +68,7 @@ class ItemService:
                     item.quality = 0
                     return item.quality
                 elif q_value > 50:
-                    item.quality = 0
+                    item.quality = 50
                     return item.quality
                 else:
                     item.quality = q_value

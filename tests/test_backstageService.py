@@ -10,11 +10,12 @@ class Test_BackstageService(unittest.TestCase):
 
         self.assertTrue(BackstageService.set_item_quality(item, q_value) == 50)
 
-    def can_increase_backstage_item_quality(self):
-        item = Item("Backstage passes to johny", 50, 20)
+    def test_can_increase_backstage_item_quality(self):
+        item = Item("Backstage passes to johny", 50, 50)
         value_to_add = 3
+        expected_val = 50
 
-        self.assertTrue(BackstageService.increase_item_quality(item, value_to_add) == item.quality + value_to_add)
+        self.assertTrue(BackstageService.increase_item_quality(item, value_to_add) == expected_val)
 
 
 if __name__ == '__main__':
